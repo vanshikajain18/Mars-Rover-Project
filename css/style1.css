@@ -1,21 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
 body {
-  margin: 0;
+  background-image: url("https://images.unsplash.com/photo-1543244001-b3206d7e83df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 0
   padding: 0;
   user-select: none;
   position: relative;
-  background-color:   #FF1493;
+  /* background-color:   #FF1493; */
   font-family: 'Courgette', cursive;
 }
 
-.title {
-  width: 100%;
-  font-size: 40px;
-  font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
-  text-align: center;
-  position: relative;
-  top: 80px;
-  font-family: 'Courgette', cursive;
-}
 
 .gameContainer {
   min-width: 400px;
@@ -25,21 +21,23 @@ body {
 
 .title {
   position: relative;
-  top: -3rem;
+  top: -5rem;
   font-size: 5rem;
   white-space:nowrap;
   font-family: "Gill Sans", "Gill Sans MT";
-  color: black;
+  color: white;
   font-family: 'Courgette', cursive;
 }
 
 .reset button {
-  font-size: 1.5rem;
-  border-radius: 10px;
-  background-color: orange;
-  margin-left: 60%;
+  font-size: 2.5rem;
+  border-radius: 15px;
+  background-color: #c8d0db !important;
+  margin-left: 70%;
+  margin-bottom: 3% ;
   outline: none;
-  color: black;
+  color: #031733;
+  padding: 10px 10px 10px 10px ;
   font-family: 'Courgette', cursive;
 }
 
@@ -56,10 +54,10 @@ body {
 }
 
 .cells ul {
-  font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
   position: absolute;
   font-size: 80px;
   font-weight: bold;
+  color: rgb(189, 193, 242);
   transform:translate(-20px, -80px);
 }
 
@@ -72,25 +70,25 @@ body {
   cursor: pointer;
   animation-name: example;
   animation-duration: .3s;
-  background-color: #03A9F4;
+  background-color:#32334a ;
 
 }
 
 .winScreen {
   font-size: 3rem;
   font-weight: bold;
-  background-color: white;
+  background-color:#0d082b;
   width: 100%;
   position: absolute;
   text-align: center;
   top: 50%;
   font-family: 'Courgette', cursive;
   z-index: 2;
-  color: orange;
+  color: #c5dbf0;
 }
 .b-button
 {
-  padding: 12px 10px ;
+  padding: 20px 20px ;
   background-color: #03A9F4;
   color: black;
   border-radius: 10px;
@@ -99,19 +97,39 @@ body {
   position: relative;
   bottom: 100px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
   outline: none;
 }
 .p-button
 {
-  padding: 12px 10px ;
-  background-color: purple;
+  padding: 20px 20px ;
+  margin-left: 20%;
+  margin-bottom: 30%;
+  background-color: rgb(110, 105, 130);
   color: black;
   border-radius: 10px;
   text-align: center;
-  position: relative;
+  position: absolute;
   bottom: 100px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 30px;
   outline: none;
 }
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  clear: both;
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+   }
+  .footer p {
+    color: white; }
+    .footer p a {
+      color: #A063DD; }
+      .footer p a:hover {
+        color: #6BE2F9; }
