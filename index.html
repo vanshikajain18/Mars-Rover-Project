@@ -1,54 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  <meta charset="utf-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Tic Tac Toe</title>
+    <!-- Sweet Alert to style the alerts-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="style1.css" rel="stylesheet">
 </head>
 
 <body>
-
-  <div id="game-container" class="center">
-    <div id="title" class="center">
-      <p>Tic - Tac - Toe</p>
-      <button type="button" class="btn btn-dark lg"><a href="#">PLAY 3X3</a></button>
-      <button type="button" class="btn btn-dark lg"><a href="four.html">PLAY 4X4 </a></button>
-    </div>
-
-    <div id="canvas-container" class="center">
-    </div>
-    <div id="info-bar" class="center">
-      <p id="winner"></p>
-      <p>The AI plays X</p>
-      <button id="reset-button">Reset</button
-      </br>
-      <div class="form-inline">
-        <p id="difficulty-info">Difficulty:    </p>
-        <input  id="difficulty" type="number" max="6" min="1" value="6">
-      </div>
-
-    </div>
-    <div class="row marketing centered">
-      <div class="col-xs-6">
-          <h4>SCORES :</h4>
-      </div>
-        <div class="col-xs-6">
-            <p class="score" id="aiScore">computer wins: 0</p>
+    <div id="aboutModal" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="about">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">About</h4>
+                </div>
+                <div class="modal-body">
+                    <p>This is an unbeatable Tic Tac Toe game powered by AI .
+                        <br>Choose a difficulty level and engage in a fun game of tic-tac-toe! </p>
+                    <p>View this project on <a href="https://github.com/vanshikajain18/codess-Project">Github</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
-        <div class="col-xs-6">
-            <p class="score" id="userScore">player wins: 0</p>
-        </div>
-
-
     </div>
-  </div>
-  <script src="js/minimax.js"></script>
-  <script src="js/sketch.js"></script>
+
+
+    <div class="row justify-content-center align-content-center">
+        <div class="col-xs-3 my-5 mx-5">
+            <div class="d-flex flex-row-reverse text-center">
+                <div class="col-xs-12" id="tictactoe">
+                    <h1>TIC</h1>
+                    <h1>TAC</h1>
+                    <h1>TOE</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 mx-5 my-5 align-content-center justify-content-center text-center">
+            <div class="container my-6 mx-5" id="main">
+                <div class="header clearfix">
+                    <nav>
+                        <ul class="nav nav-pills">
+                            <li><a id="resetGame" href="#">Reset Game</a></li>
+                            <li><a id="difficultyLevel" href="#">Difficulty: Easy</a></li>
+                            <li><a href="#aboutModal" data-toggle="modal" data-target="#aboutModal">About</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div id="alert_placeholder"></div>
+
+                <div class="jumbotron">
+                    <div class="row board above">
+                        <div id="box-1" class="col-xs-4 square left top">
+                            <p class="playerCharacter"></p>
+                        </div>
+                        <div id="box-2" class="col-xs-4 square center top">
+                            <p class="playerCharacter"></p>
+                        </div>
+                        <div id="box-3" class="col-xs-4 square right top">
+                            <p class="playerCharacter"></p>
+                        </div>
+                    </div>
+                    <div class="row board">
+                        <div id="box-4" class="col-xs-4 square left middle">
+                            <p class="playerCharacter"></p>
+                        </div>
+                        <div id="box-5" class="col-xs-4 square center middle">
+                            <p class="playerCharacter"></p>
+                        </div>
+                        <div id="box-6" class="col-xs-4 square right middle">
+                            <p class="playerCharacter"></p>
+                        </div>
+                    </div>
+                    <div class="row board below">
+                        <div id="box-7" class="col-xs-4 square left bottom">
+                            <p class="playerCharacter"></p>
+                        </div>
+                        <div id="box-8" class="col-xs-4 square center bottom">
+                            <p class="playerCharacter"></p>
+                        </div>
+                        <div id="box-9" class="col-xs-4 square right bottom">
+                            <p class="playerCharacter"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3 py-5 justify-content-center align-content-center" id="scoreboard">
+                    <div class="col-xs-12 text-center">
+                        <h4>SCORE BOARD :</h4>
+                    </div>
+            <div class="row marketing">
+                <div class="col-xs-6">
+                    <p class="score" id="aiScore">computer wins: 0</p>
+                </div>
+                <div class="col-xs-6">
+                    <p class="score" id="userScore">player wins: 0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- /container -->
+
+    <footer class="footer centered">
+        <p class="centered">Made by SAV CODERS for Codess mentorship program</p>
+    </footer>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <script src="script1.js"></script>
+
 </body>
 
 </html>
