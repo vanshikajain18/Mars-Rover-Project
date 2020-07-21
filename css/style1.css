@@ -3,7 +3,8 @@ body {
   padding: 0;
   user-select: none;
   position: relative;
-  background-color: antiquewhite;
+  background-color:   #FF1493;
+  font-family: 'Courgette', cursive;
 }
 
 .title {
@@ -13,6 +14,7 @@ body {
   text-align: center;
   position: relative;
   top: 80px;
+  font-family: 'Courgette', cursive;
 }
 
 .gameContainer {
@@ -27,14 +29,18 @@ body {
   font-size: 5rem;
   white-space:nowrap;
   font-family: "Gill Sans", "Gill Sans MT";
+  color: black;
+  font-family: 'Courgette', cursive;
 }
 
 .reset button {
   font-size: 1.5rem;
-  border-radius: 20px;
-  background-color: aliceblue;
+  border-radius: 10px;
+  background-color: orange;
   margin-left: 60%;
   outline: none;
+  color: black;
+  font-family: 'Courgette', cursive;
 }
 
 #board {
@@ -59,14 +65,15 @@ body {
 
 @keyframes example {
     from {background-color: #FFF;}
-    to {background-color:#00FFF3;}
+    to {background-color:#03A9F4;}
 }
 
 .cells:hover {
   cursor: pointer;
   animation-name: example;
   animation-duration: .3s;
-  background-color: #00FFF3;
+  background-color: #03A9F4;
+
 }
 
 .winScreen {
@@ -77,5 +84,34 @@ body {
   position: absolute;
   text-align: center;
   top: 50%;
+  font-family: 'Courgette', cursive;
   z-index: 2;
+  color: orange;
+}
+.b-button
+{
+  padding: 12px 10px ;
+  background-color: #03A9F4;
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 20%;
+  position: relative;
+  bottom: 100px;
+  font-weight: bold;
+  font-size: 20px;
+  outline: none;
+}
+.p-button
+{
+  padding: 12px 10px ;
+  background-color: purple;
+  color: black;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  bottom: 100px;
+  font-weight: bold;
+  font-size: 20px;
+  outline: none;
 }
